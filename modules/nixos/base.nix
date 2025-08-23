@@ -45,8 +45,10 @@
     tree
     lm_sensors
     dmidecode
+    pciutils
     sbctl
     niv
+    agenix-cli
   ];
 
   # Open ports in the firewall.
