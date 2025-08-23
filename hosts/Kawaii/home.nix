@@ -27,6 +27,7 @@
     };
   };
 
+  programs.fastfetch.enable = true;
   programs.git-credential-oauth.enable = true;
   programs.firefox.enable = true;
   programs.vscode.enable = true;

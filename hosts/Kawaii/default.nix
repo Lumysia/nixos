@@ -27,6 +27,7 @@
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.lanzaboote = {
     enable = true;
     pkiBundle = "/var/lib/sbctl";
@@ -36,8 +37,7 @@
   system.autoUpgrade = {
     enable = true;
     flake = "/etc/nixos";
-    dates = "10:00";
-    randomizedDelaySec = "30min";
+    dates = "daily";
     allowReboot = false;
   };
 

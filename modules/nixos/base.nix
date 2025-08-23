@@ -47,7 +47,6 @@
     dmidecode
     sbctl
     niv
-    fastfetch
   ];
 
   # Open ports in the firewall.
@@ -58,11 +57,12 @@
 
   # Auto optimise storage
   nix.optimise.automatic = true;
-  nix.optimise.dates = [ "10:35" ];
+  nix.optimise.dates = [ "daily" ];
 
   # Auto garbage collect
   nix.gc.automatic = true;
-  nix.gc.dates = "10:40";
+  nix.gc.dates = "daily";
+  nix.gc.options = "--delete-old";
 
   # flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
