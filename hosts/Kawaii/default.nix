@@ -6,8 +6,9 @@
       ./hardware-configuration.nix
 
       ../../modules/nixos/base.nix
+      ../../modules/nixos/base-programs.nix
       ../../modules/nixos/desktop-nvidia.nix
-      ../../modules/nixos/desktop-gaming.nix
+      ../../modules/nixos/desktop-programs.nix
       ../../modules/nixos/desktop-zhcn.nix
       ../../modules/nixos/services-flatpak.nix
       ../../modules/nixos/services-proxy.nix
@@ -30,10 +31,6 @@
     enable = true;
     pkiBundle = "/var/lib/sbctl";
   };
-
-  # Other Services
-  services.printing.enable = true;
-  services.tailscale.enable = true;
 
   # Auto update
   system.autoUpgrade = {
