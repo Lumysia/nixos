@@ -11,6 +11,20 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
+    # Gnome
+    gnome-tweaks
+    gnome-extension-manager
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.caffeine
+    gnomeExtensions.appindicator
+    gnomeExtensions.gsconnect
+    gnomeExtensions.clipboard-indicator
+    gnomeExtensions.removable-drive-menu
+    gnomeExtensions.vitals
+    gnomeExtensions.kimpanel
+    # Tools
+    resources
     steam-run
   ];
 

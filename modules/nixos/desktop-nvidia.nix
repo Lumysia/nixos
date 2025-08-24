@@ -52,19 +52,4 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # gnome extensions for system
-  environment.systemPackages = with pkgs; [
-    resources
-    gnome-extension-manager
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.caffeine
-    gnomeExtensions.appindicator
-    gnomeExtensions.gsconnect
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.removable-drive-menu
-    gnomeExtensions.vitals
-    gnomeExtensions.kimpanel
-  ];
 }
