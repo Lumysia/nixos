@@ -17,16 +17,20 @@
 
   # Enable the GNOME Desktop Environment
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome = {
-    enable = true;
-    extraGSettingsOverridePackages = [ pkgs.mutter ];
-    extraGSettingsOverrides = ''
-      [org.gnome.mutter]
-      experimental-features=['scale-monitor-framebuffer']
-      [org.gnome.desktop.wm.preferences]
-      button-layout='close,minimize:'
-   '';
-  };
+  services.xserver.desktopManager.gnome.enable = true;
+  programs.dconf.profiles.user.databases = [
+    {
+      settings = {
+        "org/gnome/mutter" = {
+          experimental-features = [
+            "scale-monitor-framebuffer"
+            "variable-refresh-rate"
+            "xwayland-native-scaling"
+          ];
+        };
+      };
+    }
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
