@@ -9,6 +9,7 @@
       ../../modules/nixos/base-programs.nix
       ../../modules/nixos/services-server.nix
       ../../modules/nixos/services-docker.nix
+      ../../modules/nixos/services-tailscale.nix
     ];
 
   networking.hostName = "core-nixos";

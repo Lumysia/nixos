@@ -28,10 +28,8 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          # Import the main host configuration
           ./hosts/Kawaii
 
-          # Import modules
           home-manager-stable.nixosModules.home-manager
           nix-flatpak.nixosModules.nix-flatpak
           agenix.nixosModules.default
@@ -43,6 +41,8 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/homelab-cat-core
+
+          home-manager-stable.nixosModules.home-manager
         ];
       };
 
@@ -51,6 +51,8 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/homelab-cat-games
+
+          home-manager-stable.nixosModules.home-manager
         ];
       };
 
@@ -59,6 +61,8 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/homelab-cat-services
+
+          home-manager-stable.nixosModules.home-manager
         ];
       };
 

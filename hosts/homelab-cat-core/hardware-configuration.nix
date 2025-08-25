@@ -12,10 +12,6 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-  boot.kernelParams = [
-    "console=ttyS0,115200"
-    "console=tty1"
-  ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/4b04ce32-a8ff-4636-a995-5c334fb99fe6";
