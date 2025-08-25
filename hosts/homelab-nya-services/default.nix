@@ -15,8 +15,9 @@
   networking.hostName = "services-nixos";
   time.timeZone = "Asia/Shanghai";
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
 
   boot.kernelParams = [
     "console=ttyS0,115200"
