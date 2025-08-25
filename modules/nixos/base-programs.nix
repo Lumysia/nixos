@@ -2,6 +2,7 @@
 
 {
   programs.vim.enable = true;
+  programs.git.enable = true;
   programs.appimage = {
     enable = true;
     binfmt = true;

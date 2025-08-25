@@ -45,6 +45,7 @@
     tree
     lm_sensors
     dmidecode
+    intel-gpu-tools
     pciutils
     sbctl
     niv

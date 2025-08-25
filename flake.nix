@@ -38,11 +38,27 @@
         ];
       };
 
-      CatService = nixpkgs-stable.lib.nixosSystem {
+      Homelab-Cat-Core = nixpkgs-stable.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          # server modules
+          ./hosts/homelab-cat-core
+        ];
+      };
+
+      Homelab-Cat-Games = nixpkgs-stable.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/homelab-cat-games
+        ];
+      };
+
+      Homelab-Cat-Services = nixpkgs-stable.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/homelab-cat-services
         ];
       };
 
