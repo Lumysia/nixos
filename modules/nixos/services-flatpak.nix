@@ -36,6 +36,7 @@
     "io.github.fabrialberio.pinapp"
     "com.nextcloud.desktopclient.nextcloud"
     "com.github.johnfactotum.Foliate"
+    "io.github.amit9838.mousam"
     # China
     "com.tencent.WeChat"
   ];

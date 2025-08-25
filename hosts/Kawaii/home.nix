@@ -20,9 +20,15 @@
     gnomeExtensions.removable-drive-menu
     gnomeExtensions.vitals
     gnomeExtensions.kimpanel
+    gnomeExtensions.bing-wallpaper-changer
     # Tools
     resources
     steam-run
+    ventoy-full-gtk
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "ventoy-gtk3-1.1.05"
   ];
 
   programs.gpg.enable = true;
