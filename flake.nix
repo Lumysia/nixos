@@ -66,6 +66,16 @@
         ];
       };
 
+      Homelab-Nya-Services = nixpkgs-stable.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/homelab-nya-services
+
+          home-manager-stable.nixosModules.home-manager
+        ];
+      };
+
     };
   };
 }
