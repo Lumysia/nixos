@@ -11,14 +11,16 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/8ba29992-3204-487b-a081-7df41d5b3b8e";
+    { device = "/dev/disk/by-uuid/ab179ff5-6ea1-4c9e-b531-7b05b4a79182";
       fsType = "ext4";
     };
 
-  swapDevices = [ ];
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/b134a16f-4eb9-491f-86d1-fa4f5c4dc35f"; }
+    ];
 
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.ens18.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
 }
