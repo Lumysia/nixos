@@ -113,12 +113,10 @@ nix $NIX_FLAGS flake update --flake .
 echo "✓ Flake updated successfully."
 
 if [ "$INSTALL_MODE" = true ]; then
-    echo "→ Running 'nixos-build' for flake '.#$HOSTNAME'..."
-    nixos-build --flake ".#$HOSTNAME"
+    echo "→ Running 'nixos-install' for flake '.#$HOSTNAME'..."
+    nixos-install --root /mnt --flake ".#$HOSTNAME"
     echo
     echo "✅ NixOS build for '$HOSTNAME' completed successfully."
-    echo "   The result is available in the './result' symlink."
-    echo "   You can now proceed with 'nixos-install --root /mnt --flake .#$HOSTNAME'"
 else
     echo "→ Running 'nixos-rebuild $ACTION' for flake '.#$HOSTNAME'..."
     nixos-rebuild "$ACTION" --flake ".#$HOSTNAME" --use-remote-sudo
