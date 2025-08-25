@@ -1,11 +1,13 @@
 set -e
 
+# --- Configuration ---
 ACTION="switch"
 HOSTNAME=""
 PROXY_URL=""
 NIX_FLAGS="--extra-experimental-features nix-command --extra-experimental-features flakes"
 INSTALL_MODE=false
 
+# --- Helper Functions ---
 usage() {
   echo "Usage: $0 [-b] [-p <url>] [-I] <hostname>"
   echo
@@ -25,6 +27,7 @@ usage() {
   exit 1
 }
 
+# --- Argument Parsing ---
 while [[ "$#" -gt 0 ]]; do
   case "$1" in
     -b|--boot)
@@ -61,11 +64,18 @@ while [[ "$#" -gt 0 ]]; do
   esac
 done
 
+# --- Prerequisite Checks ---
 if [ -z "$HOSTNAME" ]; then
   echo "Error: Hostname is required." >&2
   usage
 fi
 
+if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+    echo "Error: This script must be run from within a Git repository." >&2
+    exit 1
+fi
+
+# --- Display Configuration ---
 echo
 echo "--- Configuration ---"
 if [ "$INSTALL_MODE" = true ]; then
@@ -84,6 +94,7 @@ fi
 echo "---------------------"
 echo
 
+# --- Execution ---
 if [ -n "$PROXY_URL" ]; then
   export all_proxy="$PROXY_URL"
   echo "✓ Proxy exported."
@@ -91,6 +102,12 @@ else
   echo "ℹ︎ No proxy specified."
 fi
 
+# Git operations
+echo "→ Pulling latest changes from remote..."
+git pull
+echo "✓ Git pull completed."
+
+# Nix operations
 echo "→ Running 'nix flake update'..."
 nix $NIX_FLAGS flake update --flake .
 echo "✓ Flake updated successfully."
