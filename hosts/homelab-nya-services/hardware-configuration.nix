@@ -15,6 +15,8 @@
       fsType = "ext4";
     };
 
+  swapDevices = [ ];
+
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.ens18.useDHCP = lib.mkDefault true;
 
