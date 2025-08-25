@@ -60,6 +60,7 @@
     enable = true;
     systemCronJobs = [
       "*/5 * * * * root ${pkgs.docker}/bin/docker exec -u 1000 $(${pkgs.docker}/bin/docker ps -q --filter \"label=com.docker.compose.project=services-nextcloud\" --filter \"label=com.docker.compose.service=nextcloud\") php /var/www/html/cron.php"
+      "0 * * * * root ${pkgs.docker}/bin/docker exec -u 1000 $(${pkgs.docker}/bin/docker ps -q --filter \"label=com.docker.compose.project=services-nextcloud\" --filter \"label=com.docker.compose.service=nextcloud\") php /var/www/html/occ app:update --all"
     ];
   };
 
