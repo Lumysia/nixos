@@ -37,6 +37,7 @@
     "com.nextcloud.desktopclient.nextcloud"
     "com.github.johnfactotum.Foliate"
     "io.github.amit9838.mousam"
+    "com.daniel15.wcc"
     # China
     "com.tencent.WeChat"
   ];
