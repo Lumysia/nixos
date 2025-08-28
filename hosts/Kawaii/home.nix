@@ -21,6 +21,7 @@
     gnomeExtensions.vitals
     gnomeExtensions.kimpanel
     gnomeExtensions.bing-wallpaper-changer
+    gnomeExtensions.night-theme-switcher
     # Tools
     resources
     steam-run

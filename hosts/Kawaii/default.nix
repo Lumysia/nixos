@@ -11,7 +11,7 @@
       ../../modules/nixos/desktop-programs.nix
       ../../modules/nixos/desktop-zhcn.nix
       ../../modules/nixos/services-flatpak.nix
-      ../../modules/nixos/services-proxy.nix
+      #../../modules/nixos/services-proxy.nix
       ../../modules/nixos/services-docker.nix
 
       inputs.lanzaboote.nixosModules.lanzaboote
@@ -22,7 +22,7 @@
   # networking.firewall.allowedTCPPorts = [  ];
   # networking.firewall.allowedUDPPorts = [  ];
 
-  time.timeZone = "Asia/Shanghai";
+  time.timeZone = "America/Toronto";
 
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
