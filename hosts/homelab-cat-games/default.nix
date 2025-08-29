@@ -12,8 +12,8 @@
       ../../modules/nixos/services-tailscale.nix
     ];
 
-  networking.hostName = "core-games";
-  time.timeZone = "Asia/Shanghai";
+  networking.hostName = "games-nixos";
+  time.timeZone = "America/Toronto";
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";

@@ -13,7 +13,7 @@
     ];
 
   networking.hostName = "services-nixos";
-  time.timeZone = "Asia/Shanghai";
+  time.timeZone = "America/Toronto";
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
