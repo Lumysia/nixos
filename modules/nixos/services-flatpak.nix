@@ -40,6 +40,7 @@
     "com.daniel15.wcc"
     "com.parsecgaming.parsec"
     "org.gimp.GIMP"
+    "com.obsproject.Studio"
     # China
     "com.tencent.WeChat"
   ];
