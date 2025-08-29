@@ -38,6 +38,8 @@
     "com.github.johnfactotum.Foliate"
     "io.github.amit9838.mousam"
     "com.daniel15.wcc"
+    "com.parsecgaming.parsec"
+    "org.gimp.GIMP"
     # China
     "com.tencent.WeChat"
   ];
