@@ -41,6 +41,7 @@
     "com.parsecgaming.parsec"
     "org.gimp.GIMP"
     "com.obsproject.Studio"
+    "com.rustdesk.RustDesk"
     # China
     "com.tencent.WeChat"
   ];
