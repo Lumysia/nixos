@@ -42,6 +42,7 @@
     "org.gimp.GIMP"
     "com.obsproject.Studio"
     "com.rustdesk.RustDesk"
+    "io.github.chidiwilliams.Buzz"
     # China
     "com.tencent.WeChat"
   ];
