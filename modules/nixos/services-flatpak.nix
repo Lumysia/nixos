@@ -43,6 +43,7 @@
     "com.obsproject.Studio"
     "com.rustdesk.RustDesk"
     "io.github.chidiwilliams.Buzz"
+    "re.sonny.Eloquent"
     # China
     "com.tencent.WeChat"
   ];
