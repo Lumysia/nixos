@@ -16,6 +16,7 @@
   services.flatpak.packages = [
     "com.github.tchx84.Flatseal"
     "net.agalwood.Motrix"
+    "io.github.giantpinkrobots.varia"
     "org.prismlauncher.PrismLauncher"
     "com.geeks3d.furmark"
     "md.obsidian.Obsidian"
