@@ -44,6 +44,7 @@
     "com.rustdesk.RustDesk"
     "io.github.chidiwilliams.Buzz"
     "re.sonny.Eloquent"
+    "io.github.flattool.Warehouse"
     # China
     "com.tencent.WeChat"
   ];
