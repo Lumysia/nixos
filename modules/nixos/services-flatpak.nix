@@ -46,6 +46,7 @@
     "re.sonny.Eloquent"
     "io.github.flattool.Warehouse"
     "it.mijorus.gearlever"
+    "io.github.ryubing.Ryujinx"
     # China
     "com.tencent.WeChat"
   ];
