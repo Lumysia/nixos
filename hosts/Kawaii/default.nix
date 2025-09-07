@@ -33,6 +33,14 @@
     pkiBundle = "/var/lib/sbctl";
   };
 
+  specialisation = {
+    docked = {
+      configuration = {
+        boot.blacklistedKernelModules = config.boot.blacklistedKernelModules ++ [ "i915" ];
+      };
+    };
+  };
+
   system.autoUpgrade = {
     enable = true;
     flake = "/home/ivy/Projects/nixos";
