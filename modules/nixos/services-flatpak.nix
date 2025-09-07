@@ -45,6 +45,7 @@
     "io.github.chidiwilliams.Buzz"
     "re.sonny.Eloquent"
     "io.github.flattool.Warehouse"
+    "it.mijorus.gearlever"
     # China
     "com.tencent.WeChat"
   ];
