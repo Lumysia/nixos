@@ -23,7 +23,7 @@
     gnomeExtensions.bing-wallpaper-changer
     gnomeExtensions.night-theme-switcher
     # Tools
-    resources
+    mission-center
     steam-run
     ventoy-full-gtk
   ];
