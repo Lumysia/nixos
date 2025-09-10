@@ -10,6 +10,7 @@
       ../../modules/nixos/desktop-nvidia.nix
       ../../modules/nixos/desktop-programs.nix
       ../../modules/nixos/desktop-zhcn.nix
+      ../../modules/nixos/services-notebook.nix
       ../../modules/nixos/services-flatpak.nix
       #../../modules/nixos/services-proxy.nix
       ../../modules/nixos/services-docker.nix
