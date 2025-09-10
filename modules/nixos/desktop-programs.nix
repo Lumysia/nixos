@@ -6,6 +6,7 @@
   programs.steam.enable = true;
   
   services.printing.enable = true;
+  services.thermald.enable = true;
 
   nixpkgs.overlays = [
     (final: prev: {
