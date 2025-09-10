@@ -43,7 +43,6 @@
     "org.gimp.GIMP"
     "com.obsproject.Studio"
     "com.rustdesk.RustDesk"
-    "re.sonny.Eloquent"
     "io.github.flattool.Warehouse"
     "it.mijorus.gearlever"
     "io.github.ryubing.Ryujinx"
