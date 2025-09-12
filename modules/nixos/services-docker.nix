@@ -9,7 +9,7 @@
       no-new-privileges = true;
       fixed-cidr-v6 = "fd00::/80";
       ipv6 = true;
-      registry-mirrors = [ "https://docker.libcuda.so" ];
+      # registry-mirrors = [ "https://docker.libcuda.so" ];
     };
   };
 }
