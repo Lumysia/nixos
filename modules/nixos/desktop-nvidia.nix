@@ -46,9 +46,23 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    # AirPlay
+    raopOpenFirewall = true;
+    extraConfig.pipewire = {
+      "10-airplay" = {
+        "context.modules" = [
+          {
+            name = "libpipewire-module-raop-discover";
+          }
+        ];
+      };
+    };
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
+
+  # AirPlay discovery
+  services.avahi.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
