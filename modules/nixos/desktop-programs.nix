@@ -4,8 +4,20 @@
   programs.localsend.enable = true;
   programs.gamemode.enable = true;
   programs.steam.enable = true;
-  
-  services.printing.enable = true;
+
+  # MDNS discovery
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+  };
+  # Printing service
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+    ];
+  };
   services.thermald.enable = true;
 
   nixpkgs.overlays = [
