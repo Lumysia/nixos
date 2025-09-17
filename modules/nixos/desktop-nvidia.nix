@@ -61,9 +61,6 @@
     #jack.enable = true;
   };
 
-  # AirPlay discovery
-  services.avahi.enable = true;
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 }
