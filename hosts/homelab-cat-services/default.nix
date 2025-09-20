@@ -38,19 +38,19 @@
 
   home-manager.users.nya = import ./home.nix;
 
-  fileSystems."/data-lx2023" = {
+  fileSystems."/data/lx2023" = {
     device = "lexar2023-services-nixos";
     fsType = "virtiofs";
     options = [ "defaults" "nofail" ];
   };
  
-  fileSystems."/data-lx2023/shared" = {
+  fileSystems."/data/lx2023/shared" = {
     device = "lexar2023-shared";
     fsType = "virtiofs";
     options = [ "defaults" "nofail" ];
   };
 
-  fileSystems."/data-lx2024" = {
+  fileSystems."/data/lx2024" = {
     device = "lexar2024-services-nixos";
     fsType = "virtiofs";
     options = [ "defaults" "nofail" ];
