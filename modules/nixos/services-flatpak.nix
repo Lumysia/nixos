@@ -46,6 +46,7 @@
     "io.github.flattool.Warehouse"
     "it.mijorus.gearlever"
     "io.github.ryubing.Ryujinx"
+    "org.kde.skanpage"
     # China
     "com.tencent.WeChat"
   ];
