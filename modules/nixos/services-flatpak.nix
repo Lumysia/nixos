@@ -47,6 +47,7 @@
     "it.mijorus.gearlever"
     "io.github.ryubing.Ryujinx"
     "org.kde.skanpage"
+    "io.emeric.toolblex"
     # China
     "com.tencent.WeChat"
   ];
