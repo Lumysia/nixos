@@ -13,6 +13,7 @@
       ../../modules/nixos/services-flatpak.nix
       #../../modules/nixos/services-proxy.nix
       ../../modules/nixos/services-docker.nix
+      ../../modules/nixos/services-libvirtd.nix
 
       inputs.lanzaboote.nixosModules.lanzaboote
     ];
