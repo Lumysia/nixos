@@ -8,5 +8,6 @@
     binfmt = true;
   };
   services.envfs.enable = true;
+  # programs.nix-ld.enable = true;
   programs.atop.enable = true;
 }
