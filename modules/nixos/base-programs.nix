@@ -7,5 +7,6 @@
     enable = true;
     binfmt = true;
   };
+  services.envfs.enable = true;
   programs.atop.enable = true;
 }
