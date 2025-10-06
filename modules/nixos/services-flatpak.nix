@@ -48,6 +48,7 @@
     "io.github.ryubing.Ryujinx"
     "org.kde.skanpage"
     "io.emeric.toolblex"
+    "com.brave.Browser"
     # China
     "com.tencent.WeChat"
   ];
