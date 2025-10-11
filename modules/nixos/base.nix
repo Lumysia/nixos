@@ -52,12 +52,6 @@
     agenix-cli
   ];
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
-
   # Auto optimise storage
   nix.optimise.automatic = true;
   nix.optimise.dates = [ "daily" ];

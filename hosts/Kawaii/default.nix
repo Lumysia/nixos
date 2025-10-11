@@ -42,6 +42,15 @@
     };
   };
 
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  networking.firewall = {
+    enable = true;
+    checkReversePath = false; # fix for Whonix gateway bridge
+};
+
   system.autoUpgrade = {
     enable = true;
     flake = "/home/ivy/Projects/nixos";

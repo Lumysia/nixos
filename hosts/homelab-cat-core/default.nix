@@ -24,6 +24,12 @@
     "console=tty1"
   ];
 
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  networking.firewall.enable = true;
+
   system.autoUpgrade = {
     enable = true;
     flake = "/home/nya/nixos";
