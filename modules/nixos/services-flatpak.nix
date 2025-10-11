@@ -49,7 +49,6 @@
     "org.kde.skanpage"
     "io.emeric.toolblex"
     "com.brave.Browser"
-    "org.virt_manager.virt-manager"
     # China
     "com.tencent.WeChat"
   ];

@@ -51,7 +51,7 @@
   users.users.ivy = {
     isNormalUser = true;
     description = "Ivy";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
   };
   
   home-manager.users.ivy = import ./home.nix;
