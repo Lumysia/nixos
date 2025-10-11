@@ -22,6 +22,8 @@
     gnomeExtensions.kimpanel
     gnomeExtensions.bing-wallpaper-changer
     gnomeExtensions.night-theme-switcher
+    # GPG
+    gcr
     # Tools
     mission-center
     steam-run
@@ -31,8 +33,6 @@
   nixpkgs.config.permittedInsecurePackages = [
     "ventoy-gtk3-1.1.05"
   ];
-
-  programs.gpg.enable = true;
 
   programs.git = {
     enable = true;
@@ -49,6 +49,8 @@
   programs.firefox.enable = true;
   programs.vscode.enable = true;
   programs.mangohud.enable = true;
+
+  programs.gpg.enable = true;
 
   services.gpg-agent = {
     enable = true;
