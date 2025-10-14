@@ -35,7 +35,6 @@
     "io.github.radiolamp.mangojuice"
     "com.usebottles.bottles"
     "io.github.fabrialberio.pinapp"
-    "com.nextcloud.desktopclient.nextcloud"
     "com.github.johnfactotum.Foliate"
     "io.github.amit9838.mousam"
     "com.daniel15.wcc"
