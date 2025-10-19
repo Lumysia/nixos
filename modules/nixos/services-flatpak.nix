@@ -50,5 +50,6 @@
     "com.brave.Browser"
     # China
     "com.tencent.WeChat"
+    "com.qq.QQ"
   ];
 }
