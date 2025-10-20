@@ -28,6 +28,8 @@
     mission-center
     steam-run
     ventoy-full-gtk
+    brave
+    python3Full
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
