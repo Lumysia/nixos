@@ -53,9 +53,9 @@
         "context.modules" = [
           {
             name = "libpipewire-module-raop-discover";
-            args = {
-              "raop.latency.ms" = 500;
-            };
+            #args = {
+            #  "raop.latency.ms" = 1000;
+            #};
           }
         ];
       };
