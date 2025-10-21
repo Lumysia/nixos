@@ -48,6 +48,7 @@
     "org.kde.skanpage"
     "io.emeric.toolblex"
     "com.brave.Browser"
+    "net.sapples.LiveCaptions"
     # China
     "com.tencent.WeChat"
     "com.qq.QQ"
