@@ -69,7 +69,7 @@
       "*/5 * * * * root ${pkgs.docker}/bin/docker exec -u 1000 $(${pkgs.docker}/bin/docker ps -q --filter \"label=com.docker.compose.project=services-nextcloud\" --filter \"label=com.docker.compose.service=nextcloud\") php /var/www/html/cron.php"
       "0 * * * * root ${pkgs.docker}/bin/docker exec -u 1000 $(${pkgs.docker}/bin/docker ps -q --filter \"label=com.docker.compose.project=services-nextcloud\" --filter \"label=com.docker.compose.service=nextcloud\") php /var/www/html/occ app:update --all"
       # Seafile GC
-      "0 3 * * 0 root ${pkgs.docker}/bin/docker exec $(${pkgs.docker}/bin/docker ps -q --filter \"label=com.docker.compose.project=services-seafile\" --filter \"label=com.docker.compose.service=seafile\") /opt/seafile/seafile-server-latest/seaf-gc.sh"
+      "0 3 * * * root ${pkgs.docker}/bin/docker exec $(${pkgs.docker}/bin/docker ps -q --filter \"label=com.docker.compose.project=services-seafile\" --filter \"label=com.docker.compose.service=seafile\") /opt/seafile/seafile-server-latest/seaf-gc.sh"
     ];
   };
 
