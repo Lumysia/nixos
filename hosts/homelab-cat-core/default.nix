@@ -50,5 +50,11 @@
     options = [ "defaults" "nofail" ];
   };
 
+  fileSystems."/data/lx2023" = {
+    device = "lexar2023-core-nixos";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" ];
+  };
+
   system.stateVersion = "25.05";
 }
