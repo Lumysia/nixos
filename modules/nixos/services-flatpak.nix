@@ -49,6 +49,7 @@
     "io.emeric.toolblex"
     "com.brave.Browser"
     "net.sapples.LiveCaptions"
+    "im.riot.Riot"
     # China
     "com.tencent.WeChat"
     "com.qq.QQ"
