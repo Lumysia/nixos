@@ -58,4 +58,6 @@
     enable = true;
     pinentry.package = pkgs.pinentry-gnome3;
   };
+
+  services.gnome-keyring.enable = true;
 }
