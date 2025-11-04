@@ -66,12 +66,12 @@
     enable = true;
     systemCronJobs = [
       # NextCloud
-      "*/5 * * * * root ${pkgs.docker}/bin/docker exec -u 1000 $(${pkgs.docker}/bin/docker ps -q --filter \"label=com.docker.compose.project=services-nextcloud\" --filter \"label=com.docker.compose.service=nextcloud\") php /var/www/html/cron.php"
-      "0 * * * * root ${pkgs.docker}/bin/docker exec -u 1000 $(${pkgs.docker}/bin/docker ps -q --filter \"label=com.docker.compose.project=services-nextcloud\" --filter \"label=com.docker.compose.service=nextcloud\") php /var/www/html/occ app:update --all"
+      #"*/5 * * * * root ${pkgs.docker}/bin/docker exec -u 1000 $(${pkgs.docker}/bin/docker ps -q --filter \"name=^nextcloud$\") php /var/www/html/cron.php"
+      #"0 * * * * root ${pkgs.docker}/bin/docker exec -u 1000 $(${pkgs.docker}/bin/docker ps -q --filter \"name=^nextcloud$\") php /var/www/html/occ app:update --all"
       # Seafile GC
-      "0 3 * * * root ${pkgs.docker}/bin/docker exec $(${pkgs.docker}/bin/docker ps -q --filter \"label=com.docker.compose.project=services-seafile\" --filter \"label=com.docker.compose.service=seafile\") /opt/seafile/seafile-server-latest/seaf-gc.sh"
+      "0 5 * * * root ${pkgs.docker}/bin/docker exec $(${pkgs.docker}/bin/docker ps -q --filter \"name=^seafile$\") /opt/seafile/seafile-server-latest/seaf-gc.sh"
       # Gitea Renovate
-      "15 * * * * root ${pkgs.docker}/bin/docker start $(${pkgs.docker}/bin/docker ps -a -q --filter \"label=com.docker.compose.service=renovate\")"
+      "15 * * * * root ${pkgs.docker}/bin/docker start $(${pkgs.docker}/bin/docker ps -a -q --filter \"name=^renovate$\")"
     ];
   };
 
