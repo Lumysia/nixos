@@ -44,7 +44,7 @@
 
   home-manager.users.nya = import ./home.nix;
 
-  fileSystems."/data-ss2025" = {
+  fileSystems."/data/ss2025" = {
     device = "samsung2025-services-nixos";
     fsType = "virtiofs";
     options = [ "defaults" "nofail" ];
