@@ -6,6 +6,7 @@
   config = lib.mkIf config.features.user.suser.enable {
     users.users.suser = {
       isNormalUser = true;
+      uid = 1000;
       description = "sUser";
       extraGroups = [ "networkmanager" "wheel" "docker" ];
     };
