@@ -1,5 +1,5 @@
 {
-  description = "Nya NixOS";
+  description = "NixOS Configuration";
 
   inputs = {
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
@@ -22,60 +22,49 @@
     agenix.url = "github:ryantm/agenix";
   };
 
-  outputs = { self, nixpkgs-stable, nixpkgs-unstable, home-manager-stable, home-manager-unstable, nix-flatpak, agenix, ... }@inputs: {
-    nixosConfigurations = {
-      Kawaii = nixpkgs-stable.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/Kawaii
+  outputs = { self, nixpkgs-stable, home-manager-stable, ... }@inputs:
+    let
+      mkSystem = { hostname, system ? "x86_64-linux", modules ? [] }:
+        nixpkgs-stable.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/${hostname}
+            home-manager-stable.nixosModules.home-manager
+            {
+              networking.hostName = hostname;
+            }
+          ] ++ modules;
+        };
+    in
+    {
+      nixosConfigurations = {
+        # Personal Desktop
+        kawaii = mkSystem {
+          hostname = "kawaii";
+          modules = [
+            inputs.nix-flatpak.nixosModules.nix-flatpak
+            inputs.agenix.nixosModules.default
+            inputs.lanzaboote.nixosModules.lanzaboote
+          ];
+        };
 
-          home-manager-stable.nixosModules.home-manager
-          nix-flatpak.nixosModules.nix-flatpak
-          agenix.nixosModules.default
-        ];
+        # Infrastructure
+        hq-cat-core = mkSystem {
+          hostname = "hq-cat-core";
+        };
+
+        hq-cat-games = mkSystem {
+          hostname = "hq-cat-games";
+        };
+
+        hq-cat-services = mkSystem {
+          hostname = "hq-cat-services";
+        };
+
+        hq-nya-services = mkSystem {
+          hostname = "hq-nya-services";
+        };
       };
-
-      Homelab-Cat-Core = nixpkgs-stable.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/homelab-cat-core
-
-          home-manager-stable.nixosModules.home-manager
-        ];
-      };
-
-      Homelab-Cat-Games = nixpkgs-stable.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/homelab-cat-games
-
-          home-manager-stable.nixosModules.home-manager
-        ];
-      };
-
-      Homelab-Cat-Services = nixpkgs-stable.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/homelab-cat-services
-
-          home-manager-stable.nixosModules.home-manager
-        ];
-      };
-
-      Homelab-Nya-Services = nixpkgs-stable.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/homelab-nya-services
-
-          home-manager-stable.nixosModules.home-manager
-        ];
-      };
-
     };
-  };
 }

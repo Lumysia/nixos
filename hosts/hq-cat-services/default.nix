@@ -1,33 +1,28 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/features/core.nix
+    ../../modules/features/server/openssh.nix
+    ../../modules/features/virtualisation/docker.nix
+    ../../modules/features/services/tailscale.nix
+    ../../modules/home/users/suser.nix
+  ];
 
-      ../../modules/nixos/base.nix
-      ../../modules/nixos/base-programs.nix
-      ../../modules/nixos/services-server.nix
-      ../../modules/nixos/services-docker.nix
-      ../../modules/nixos/services-tailscale.nix
-    ];
+  features.core.enable = true;
+  features.server.openssh.enable = true;
+  features.virtualisation.docker.enable = true;
+  features.services.tailscale.enable = true;
+  features.user.suser.enable = true;
 
-  networking.hostName = "services-nixos";
   time.timeZone = "America/Toronto";
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
+  boot.kernelParams = [ "console=ttyS0,115200" "console=tty1" ];
 
-  boot.kernelParams = [
-    "console=ttyS0,115200"
-    "console=tty1"
-  ];
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
   networking.firewall.enable = true;
 
   system.autoUpgrade = {
@@ -35,15 +30,8 @@
     flake = "/home/nya/nixos";
     dates = "daily";
   };
-  
-  users.users.nya = {
-    isNormalUser = true;
-    description = "Nya";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-  };
 
-  home-manager.users.nya = import ./home.nix;
-
+  # Mounts
   fileSystems."/data/lx2023" = {
     device = "lexar2023-services-nixos";
     fsType = "virtiofs";
@@ -62,12 +50,10 @@
     options = [ "defaults" "nofail" ];
   };
 
+  # Cron Jobs
   services.cron = {
     enable = true;
     systemCronJobs = [
-      # NextCloud
-      #"*/5 * * * * root ${pkgs.docker}/bin/docker exec -u 1000 $(${pkgs.docker}/bin/docker ps -q --filter \"name=^nextcloud$\") php /var/www/html/cron.php"
-      #"0 * * * * root ${pkgs.docker}/bin/docker exec -u 1000 $(${pkgs.docker}/bin/docker ps -q --filter \"name=^nextcloud$\") php /var/www/html/occ app:update --all"
       # Seafile GC
       "0 5 * * * root ${pkgs.docker}/bin/docker exec $(${pkgs.docker}/bin/docker ps -q --filter \"name=^seafile$\") /opt/seafile/seafile-server-latest/seaf-gc.sh"
       # Gitea Renovate
@@ -75,6 +61,5 @@
     ];
   };
 
-  # State version
   system.stateVersion = "25.05";
 }
