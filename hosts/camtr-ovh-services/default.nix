@@ -27,6 +27,12 @@
 
   networking.firewall.enable = true;
 
+  fileSystems."/data" = {
+    device = "data-root";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
   system.stateVersion = "25.05";
 
 }
