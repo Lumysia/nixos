@@ -32,6 +32,12 @@
   #};
 
   # Mounts
+  fileSystems."/data/aimodels" = {
+    device = "aimodels";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
   fileSystems."/data/appdata" = {
     device = "appdata";
     fsType = "virtiofs";
@@ -68,9 +74,15 @@
     options = [ "defaults" "nofail" "noatime" ];
   };
 
-  # TODO:TEMPORARY
   fileSystems."/data/media" = {
     device = "media";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
+  # TODO:TEMPORARY
+  fileSystems."/data/media-tmp" = {
+    device = "media-tmp";
     fsType = "virtiofs";
     options = [ "defaults" "nofail" "noatime" ];
   };
