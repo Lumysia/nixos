@@ -34,16 +34,16 @@
   #};
 
   # Mounts
-  fileSystems."/data/shared" = {
-    device = "lexar2023-shared";
+  fileSystems."/data/downloads" = {
+    device = "downloads";
     fsType = "virtiofs";
-    options = [ "defaults" "nofail" ];
+    options = [ "defaults" "nofail" "noatime" ];
   };
 
-  fileSystems."/data/lx2023" = {
-    device = "lexar2023-core-nixos";
+  fileSystems."/data/appdata" = {
+    device = "appdata";
     fsType = "virtiofs";
-    options = [ "defaults" "nofail" ];
+    options = [ "defaults" "nofail" "noatime" ];
   };
 
   system.stateVersion = "25.05";
