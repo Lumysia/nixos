@@ -50,6 +50,7 @@
         };
 
         # Infrastructure
+        ## Headquarters
         hq-cat-core = mkSystem {
           hostname = "hq-cat-core";
         };
@@ -64,6 +65,11 @@
 
         hq-nya-services = mkSystem {
           hostname = "hq-nya-services";
+        };
+
+        ## CA
+        camtr-ovh-services = mkSystem {
+          hostname = "camtr-ovh-services";
         };
       };
     };
