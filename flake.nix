@@ -68,8 +68,8 @@
         };
 
         ## CA
-        camtr-ovh-services = mkSystem {
-          hostname = "camtr-ovh-services";
+        camtr-ovh-01-services = mkSystem {
+          hostname = "camtr-ovh-01-services";
         };
       };
     };
