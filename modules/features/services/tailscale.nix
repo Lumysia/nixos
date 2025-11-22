@@ -15,7 +15,7 @@
     services.tailscale = {
       enable = true;
       # Note: authKeyFile path might need adjustment per host.
-      authKeyFile = "/etc/nixos/secrets/tailscale-authkey";
+      authKeyFile = "/etc/secrets/tailscale-authkey";
       extraUpFlags = [
         "--accept-dns"
         "--snat-subnet-routes=false"
