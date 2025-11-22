@@ -25,11 +25,11 @@
 
   networking.firewall.enable = true;
 
-  system.autoUpgrade = {
-    enable = true;
-    flake = "/home/nya/nixos";
-    dates = "daily";
-  };
+  #system.autoUpgrade = {
+  #  enable = true;
+  #  flake = "/root/nixos";
+  #  dates = "daily";
+  #};
 
   fileSystems."/data/ss2025" = {
     device = "samsung2025-services-nixos";

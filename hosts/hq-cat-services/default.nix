@@ -25,11 +25,11 @@
 
   networking.firewall.enable = true;
 
-  system.autoUpgrade = {
-    enable = true;
-    flake = "/home/nya/nixos";
-    dates = "daily";
-  };
+  #system.autoUpgrade = {
+  #  enable = true;
+  #  flake = "/root/nixos";
+  #  dates = "daily";
+  #};
 
   # Mounts
   fileSystems."/data/lx2023" = {
