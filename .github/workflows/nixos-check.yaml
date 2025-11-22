@@ -8,21 +8,31 @@ on:
   pull_request:
 
 jobs:
-  prepare:
+  check-flake:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: DeterminateSystems/determinate-nix-action@v3
+      - name: Check Flake Structure
+        run: nix flake check
+
+  prepare-build-matrix:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - uses: actions/checkout@v5
-      
       - id: set-matrix
         name: Generate Host Matrix
         run: |
           HOSTS=$(ls hosts | jq -R -s -c 'split("\n") | map(select(length > 0))')
           echo "matrix=$HOSTS" >> "$GITHUB_OUTPUT"
 
-  check-configuration:
-    needs: prepare
+  check-host-builds:
+    needs: prepare-build-matrix
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -30,14 +40,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        host: ${{ fromJson(needs.prepare.outputs.matrix) }}
+        host: ${{ fromJson(needs.prepare-build-matrix.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v5
-      
       - uses: DeterminateSystems/determinate-nix-action@v3
-
-      - name: Check Flake Structure
-        run: nix flake check
-
       - name: Dry Run Build
         run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel --dry-run
