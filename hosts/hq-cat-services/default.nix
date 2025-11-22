@@ -32,22 +32,29 @@
   #};
 
   # Mounts
-  fileSystems."/data/lx2023" = {
-    device = "lexar2023-services-nixos";
+  fileSystems."/data/downloads" = {
+    device = "downloads";
     fsType = "virtiofs";
-    options = [ "defaults" "nofail" ];
-  };
- 
-  fileSystems."/data/lx2023/shared" = {
-    device = "lexar2023-shared";
-    fsType = "virtiofs";
-    options = [ "defaults" "nofail" ];
+    options = [ "defaults" "nofail" "noatime" ];
   };
 
-  fileSystems."/data/lx2024" = {
-    device = "lexar2024-services-nixos";
+  fileSystems."/data/appdata" = {
+    device = "appdata";
     fsType = "virtiofs";
-    options = [ "defaults" "nofail" ];
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
+  fileSystems."/data/backups" = {
+    device = "backups";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
+  # TODO:TEMPORARY
+  fileSystems."/data/media" = {
+    device = "media";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
   };
 
   # Cron Jobs
