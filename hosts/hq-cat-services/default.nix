@@ -44,6 +44,12 @@
     options = [ "defaults" "nofail" "noatime" ];
   };
 
+  fileSystems."/data/blobstore" = {
+    device = "blobstore";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
   fileSystems."/data/db" = {
     device = "db";
     fsType = "virtiofs";
