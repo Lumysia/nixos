@@ -34,14 +34,14 @@
   #};
 
   # Mounts
-  fileSystems."/data/downloads" = {
-    device = "downloads";
+  fileSystems."/data/appdata" = {
+    device = "appdata";
     fsType = "virtiofs";
     options = [ "defaults" "nofail" "noatime" ];
   };
-
-  fileSystems."/data/appdata" = {
-    device = "appdata";
+  
+  fileSystems."/data/downloads" = {
+    device = "downloads";
     fsType = "virtiofs";
     options = [ "defaults" "nofail" "noatime" ];
   };
