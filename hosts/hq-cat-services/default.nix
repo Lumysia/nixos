@@ -62,6 +62,12 @@
     options = [ "defaults" "nofail" "noatime" ];
   };
 
+  fileSystems."/data/logs" = {
+    device = "logs";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
   # TODO:TEMPORARY
   fileSystems."/data/media" = {
     device = "media";
