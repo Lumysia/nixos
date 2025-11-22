@@ -44,6 +44,12 @@
     options = [ "defaults" "nofail" "noatime" ];
   };
 
+  fileSystem."/data/db" = {
+    device = "db";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
   fileSystems."/data/downloads" = {
     device = "downloads";
     fsType = "virtiofs";
