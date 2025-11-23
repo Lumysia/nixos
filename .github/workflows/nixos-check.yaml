@@ -34,7 +34,7 @@ jobs:
           echo "matrix=$HOSTS" >> "$GITHUB_OUTPUT"
 
   check-host-builds:
-    needs: prepare-build-matrix
+    needs: [check-flake, prepare-build-matrix]
     runs-on: ubuntu-latest
     permissions:
       contents: read
