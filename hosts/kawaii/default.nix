@@ -19,6 +19,7 @@
   features.desktop.gnome.enable = true;
   features.desktop.flatpak.enable = true;
   features.desktop.gaming.enable = true;
+  features.services.tailscale.enable = true;
   features.virtualisation.docker.enable = true;
   features.virtualisation.libvirtd.enable = true;
   features.user.ivy.enable = true;
