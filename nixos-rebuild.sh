@@ -6,10 +6,11 @@ HOSTNAME=""
 PROXY_URL=""
 NIX_FLAGS="--extra-experimental-features nix-command --extra-experimental-features flakes"
 INSTALL_MODE=false
+UPDATE_MODE=false
 
 # --- Helper Functions ---
 usage() {
-  echo "Usage: $0 [-b] [-p <url>] [-I] <hostname>"
+  echo "Usage: $0 [-b] [-u] [-p <url>] [-I] <hostname>"
   echo
   echo "  A script to build or rebuild a NixOS system from a flake."
   echo
@@ -19,6 +20,7 @@ usage() {
   echo "    -I, --install Use 'nixos-build' for a first-time installation (overrides -b)."
   echo
   echo "  Options:"
+  echo "    -u, --update       Update flake inputs and git pull before building."
   echo "    -p, --proxy <url>  Set the http/https proxy for the operation."
   echo "    -h, --help         Display this help message and exit."
   echo
@@ -36,6 +38,10 @@ while [[ "$#" -gt 0 ]]; do
       ;;
     -I|--install)
       INSTALL_MODE=true
+      shift
+      ;;
+    -u|--update)
+      UPDATE_MODE=true
       shift
       ;;
     -p|--proxy)
@@ -88,6 +94,7 @@ else
   echo "Action:   $ACTION"
 fi
 echo "Hostname: $HOSTNAME"
+echo "Update:   $UPDATE_MODE"
 if [ -n "$PROXY_URL" ]; then
   echo "Proxy:    $PROXY_URL"
 fi
@@ -102,15 +109,19 @@ else
   echo "ℹ︎ No proxy specified."
 fi
 
-# Git operations
-echo "→ Pulling latest changes from remote..."
-git pull
-echo "✓ Git pull completed."
+if [ "$UPDATE_MODE" = true ]; then
+  # Git operations
+  echo "→ Pulling latest changes from remote..."
+  git pull
+  echo "✓ Git pull completed."
 
-# Nix operations
-echo "→ Running 'nix flake update'..."
-nix $NIX_FLAGS flake update --flake .
-echo "✓ Flake updated successfully."
+  # Nix operations
+  echo "→ Running 'nix flake update'..."
+  nix $NIX_FLAGS flake update --flake .
+  echo "✓ Flake updated successfully."
+else
+  echo "ℹ︎ Skipping update (use -u to enable)."
+fi
 
 if [ "$INSTALL_MODE" = true ]; then
     echo "→ Running 'nixos-install' for flake '.#$HOSTNAME'..."
