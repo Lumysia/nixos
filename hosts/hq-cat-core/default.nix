@@ -46,5 +46,11 @@
     options = [ "defaults" "nofail" "noatime" ];
   };
 
+  fileSystems."/data/logs" = {
+    device = "logs";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
   system.stateVersion = "25.05";
 }
