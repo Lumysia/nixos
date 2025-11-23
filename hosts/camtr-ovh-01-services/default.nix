@@ -28,6 +28,12 @@
   networking.firewall.enable = true;
 
   # Mounts
+  fileSystems."/data/infra" = {
+    device = "infra";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
   fileSystems."/data/appdata" = {
     device = "appdata";
     fsType = "virtiofs";

@@ -27,13 +27,13 @@
 
   networking.firewall.enable = true;
 
-  #system.autoUpgrade = {
-  #  enable = true;
-  #  flake = "/root/nixos";
-  #  dates = "daily";
-  #};
-
   # Mounts
+  fileSystems."/data/infra" = {
+    device = "infra";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+  
   fileSystems."/data/appdata" = {
     device = "appdata";
     fsType = "virtiofs";

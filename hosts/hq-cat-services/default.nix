@@ -24,14 +24,14 @@
   boot.kernelParams = [ "console=ttyS0,115200" "console=tty1" ];
 
   networking.firewall.enable = true;
-
-  #system.autoUpgrade = {
-  #  enable = true;
-  #  flake = "/root/nixos";
-  #  dates = "daily";
-  #};
-
+  
   # Mounts
+  fileSystems."/data/infra" = {
+    device = "infra";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+  
   fileSystems."/data/aimodels" = {
     device = "aimodels";
     fsType = "virtiofs";

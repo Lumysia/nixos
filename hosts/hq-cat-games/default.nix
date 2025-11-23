@@ -25,22 +25,22 @@
 
   networking.firewall.enable = true;
 
-  #system.autoUpgrade = {
-  #  enable = true;
-  #  flake = "/root/nixos";
-  #  dates = "daily";
-  #};
-
-  fileSystems."/data" = {
-    device = "lexar2023-games-nixos";
+  fileSystems."/data/infra" = {
+    device = "infra";
     fsType = "virtiofs";
-    options = [ "defaults" "nofail" ];
+    options = [ "defaults" "nofail" "noatime" ];
   };
 
-  fileSystems."/data/shared" = {
-    device = "lexar2023-shared";
+  fileSystems."/data/games" = {
+    device = "games";
     fsType = "virtiofs";
-    options = [ "defaults" "nofail" ];
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
+  fileSystems."/data/backups" = {
+    device = "backups";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
   };
 
   system.stateVersion = "25.05";
