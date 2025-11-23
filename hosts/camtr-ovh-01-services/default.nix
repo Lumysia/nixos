@@ -27,8 +27,27 @@
 
   networking.firewall.enable = true;
 
-  fileSystems."/data" = {
-    device = "data-root";
+  # Mounts
+  fileSystems."/data/appdata" = {
+    device = "appdata";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
+  fileSystems."/data/db" = {
+    device = "db";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
+  fileSystems."/data/media" = {
+    device = "media";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
+  fileSystems."/data/downloads" = {
+    device = "downloads";
     fsType = "virtiofs";
     options = [ "defaults" "nofail" "noatime" ];
   };
