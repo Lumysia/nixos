@@ -80,13 +80,6 @@
     options = [ "defaults" "nofail" "noatime" ];
   };
 
-  # TODO:TEMPORARY
-  fileSystems."/data/media-tmp" = {
-    device = "media-tmp";
-    fsType = "virtiofs";
-    options = [ "defaults" "nofail" "noatime" ];
-  };
-
   # Cron Jobs
   services.cron = {
     enable = true;
