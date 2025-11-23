@@ -8,6 +8,7 @@
     ../../modules/features/desktop/gnome.nix
     ../../modules/features/desktop/flatpak.nix
     ../../modules/features/desktop/gaming.nix
+    ../../modules/features/services/tailscale.nix
     ../../modules/features/virtualisation/docker.nix
     ../../modules/features/virtualisation/libvirtd.nix
     ../../modules/home/users/ivy.nix
@@ -19,6 +20,7 @@
   features.desktop.gnome.enable = true;
   features.desktop.flatpak.enable = true;
   features.desktop.gaming.enable = true;
+  features.services.tailscale.enable = true;
   features.virtualisation.docker.enable = true;
   features.virtualisation.libvirtd.enable = true;
   features.user.ivy.enable = true;
