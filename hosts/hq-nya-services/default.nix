@@ -25,12 +25,43 @@
 
   networking.firewall.enable = true;
 
-  #system.autoUpgrade = {
-  #  enable = true;
-  #  flake = "/root/nixos";
-  #  dates = "daily";
-  #};
+  fileSystems."/data/infra" = {
+    device = "infra";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
 
+  fileSystems."/data/appdata" = {
+    device = "appdata";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
+  fileSystems."/data/backups" = {
+    device = "backups";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
+  fileSystems."/data/db" = {
+    device = "db";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
+  fileSystems."/data/downloads" = {
+    device = "downloads";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
+  fileSystems."/data/logs" = {
+    device = "logs";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
+  # TODO
   fileSystems."/data/ss2025" = {
     device = "samsung2025-services-nixos";
     fsType = "virtiofs";
