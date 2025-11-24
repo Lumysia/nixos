@@ -46,8 +46,20 @@
     options = [ "defaults" "nofail" "noatime" ];
   };
 
+  fileSystems."/data/logs" = {
+    device = "logs";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
   fileSystems."/data/media" = {
     device = "media";
+    fsType = "virtiofs";
+    options = [ "defaults" "nofail" "noatime" ];
+  };
+
+  fileSystems."/data/blobstore" = {
+    device = "blobstore";
     fsType = "virtiofs";
     options = [ "defaults" "nofail" "noatime" ];
   };
