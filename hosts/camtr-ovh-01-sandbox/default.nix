@@ -14,6 +14,7 @@
   features.core.enable = true;
   features.server.openssh.enable = true;
   features.virtualisation.docker.enable = true;
+  virtualisation.docker.daemon.settings.no-new-privileges = lib.mkForce false;
   features.services.tailscale.enable = true;
   # services.tailscale.authKeyFile = "/home/suser/tailscalekey";
   features.user.suser.enable = true;
