@@ -45,24 +45,19 @@
 
     # Base Packages
     environment.systemPackages = with pkgs; [
-      vim
-      git
       zip
-      unzip
       unar
+      tree
       btop
       ctop
-      tree
-      lm_sensors
-      dmidecode
-      pciutils
-      sbctl
+      uv
       agenix-cli
     ];
 
     # Base Programs
     programs.vim.enable = true;
     programs.git.enable = true;
+    programs.tmux.enable = true;
     programs.atop.enable = true;
     services.envfs.enable = true;
   };
