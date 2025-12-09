@@ -15,9 +15,7 @@
       nixpkgs.config.allowUnfree = true;
       programs.home-manager.enable = true;
 
-      nixpkgs.config.permittedInsecurePackages = [
-        "ventoy-gtk3-1.1.05"
-      ];
+      nixpkgs.config.permittedInsecurePackages = [];
 
       home.packages = with pkgs; [
         # Gnome Customization
@@ -38,7 +36,6 @@
         # Tools
         mission-center
         steam-run
-        ventoy-full-gtk
         brave
         
         # GPG Utils
