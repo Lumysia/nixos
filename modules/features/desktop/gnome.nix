@@ -7,13 +7,15 @@
     # X11 / Wayland
     services.xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
       xkb = {
         layout = "us";
         variant = "";
       };
     };
+
+    # Display Manager & Desktop Environment
+    services.displayManager.gdm.enable = true;
+    services.desktopManager.gnome.enable = true;
 
     # Audio
     services.pulseaudio.enable = false;

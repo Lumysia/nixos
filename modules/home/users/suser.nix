@@ -18,7 +18,6 @@
 
       home.packages = with pkgs; [ ];
 
-      programs.git.enable = true;
       programs.gpg.enable = true;
       
       programs.fastfetch.enable = true;

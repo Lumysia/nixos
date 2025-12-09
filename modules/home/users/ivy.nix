@@ -42,16 +42,6 @@
         gcr
       ];
 
-      programs.git = {
-        enable = true;
-        userName = "Livia";
-        userEmail = "91-cornice-precept@icloud.com";
-        #signing = {
-        #  key = "";
-        #  signByDefault = false;
-        #};
-      };
-
       programs.gpg.enable = true;
       services.gpg-agent = {
         enable = true;
