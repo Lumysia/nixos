@@ -15,9 +15,7 @@
       nixpkgs.config.allowUnfree = true;
       programs.home-manager.enable = true;
 
-      nixpkgs.config.permittedInsecurePackages = [
-        "ventoy-gtk3-1.1.05"
-      ];
+      nixpkgs.config.permittedInsecurePackages = [];
 
       home.packages = with pkgs; [
         # Gnome Customization
@@ -38,23 +36,11 @@
         # Tools
         mission-center
         steam-run
-        ventoy-full-gtk
         brave
-        python3Full
         
         # GPG Utils
         gcr
       ];
-
-      programs.git = {
-        enable = true;
-        userName = "Livia";
-        userEmail = "91-cornice-precept@icloud.com";
-        #signing = {
-        #  key = "";
-        #  signByDefault = false;
-        #};
-      };
 
       programs.gpg.enable = true;
       services.gpg-agent = {
