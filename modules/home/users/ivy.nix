@@ -40,7 +40,6 @@
         steam-run
         ventoy-full-gtk
         brave
-        python3Full
         
         # GPG Utils
         gcr
