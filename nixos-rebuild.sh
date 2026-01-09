@@ -130,7 +130,8 @@ if [ "$INSTALL_MODE" = true ]; then
     echo "✅ NixOS build for '$HOSTNAME' completed successfully."
 else
     echo "→ Running 'nixos-rebuild $ACTION' for flake '.#$HOSTNAME'..."
-    nixos-rebuild "$ACTION" --flake ".#$HOSTNAME" --sudo
+    # nixos-rebuild "$ACTION" --flake ".#$HOSTNAME" --sudo
+    nixos-rebuild "$ACTION" --flake ".#$HOSTNAME" --use-remote-sudo # Compatibility
     echo
     echo "✅ NixOS rebuild for '$HOSTNAME' completed successfully with action '$ACTION'."
 fi
