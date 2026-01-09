@@ -75,10 +75,6 @@
         camtr-ovh-01-sandbox = mkSystem {
           hostname = "camtr-ovh-01-sandbox";
         };
-
-        camtr-ovh-01-remnawave = mkSystem {
-          hostname = "camtr-ovh-01-remnawave";
-        };
       };
     };
 }
